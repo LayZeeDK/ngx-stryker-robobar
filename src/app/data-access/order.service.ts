@@ -1,5 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
 
+import { Drink } from '../domain/drink';
 import { storageToken } from './storage.token';
 
 @Injectable({

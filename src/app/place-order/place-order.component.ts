@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { DrinkService } from '../drink.service';
-import { OrderService } from '../order.service';
+import { DrinkService } from '../data-access/drink.service';
+import { OrderService } from '../data-access/order.service';
+import { Drink } from '../domain/drink';
 
 @Component({
   selector: 'robo-place-order',

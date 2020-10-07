@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 
+import { Drink } from '../domain/drink';
+
 @Injectable({
   providedIn: 'root',
 })
