@@ -1,10 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    pathMatch: 'full',
+    loadChildren: () =>
+      import('./place-order/place-order.module').then(
+        esModule => esModule.PlaceOrderModule,
+      ),
+  },
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
+  imports: [RouterModule.forRoot(routes)],
 })
 export class AppRoutingModule {}

@@ -1,0 +1,60 @@
+<div class="row">
+  <h2 class="col-12 display-4">Place order - prrrt</h2>
+</div>
+<div class="row">
+  <table class="table col-12">
+    <thead>
+      <tr>
+        <th>Drink</th>
+        <th colspan="2">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let drink of drinks">
+        <td>{{ drink.name }}</td>
+        <td>{{ drink.price | currency: '€' }}</td>
+        <td>
+          <div class="row">
+            <div class="col-5 input-group">
+              <div class="input-group-prepend">
+                <button (click)="onDecrement(drink)" class="btn btn-dark">
+                  -
+                </button>
+              </div>
+              <input
+                class="form-control"
+                type="number"
+                [(ngModel)]="drink.amount"
+                readonly
+              />
+              <div class="input-group-append">
+                <button (click)="onIncrement(drink)" class="btn btn-dark">
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>Total</th>
+        <th>{{ totalPrice | currency: 'EUR' }}</th>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="row">
+  <div class="col-12">
+    <button
+      class="btn btn-success"
+      [disabled]="!isSubmitEnabled"
+      (click)="onSubmit()"
+      type="submit"
+    >
+      Submit order
+    </button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">&nbsp;</div>
+</div>
