@@ -12,7 +12,7 @@
     <tbody>
       <tr *ngFor="let drink of drinks">
         <td>{{ drink.name }}</td>
-        <td>{{ drink.price | currency: '€' }}</td>
+        <td>{{ drink.price | currency: 'EUR' }}</td>
         <td>
           <div class="row">
             <div class="col-5 input-group">
