@@ -1,0 +1,14 @@
+{
+    "name": "Robobar",
+    "short_name": "Robobar",
+    "icons": [
+        {
+            "src": "/android-chrome-144x144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#b74934",
+    "background_color": "#b74934",
+    "display": "standalone"
+}
