@@ -1,0 +1,62 @@
+<div class="row">
+  <h2 class="col-12 display-4">
+    Order review
+    <small class="text-muted"
+      >- {{ numberOfDrinks }} drink{{ numberOfDrinks > 1 ? 's' : '' }}</small
+    >
+  </h2>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="alert alert-danger" *ngIf="error" role="alert">
+      <h4 class="alert-heading">Prrt!</h4>
+      <p>{{ error }}</p>
+    </div>
+  </div>
+  <div class="col-12">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Drink</th>
+          <th>#</th>
+          <th>Price</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let drink of order">
+          <td>
+            <em>{{ drink.name }}</em>
+          </td>
+          <td>{{ drink.amount }}</td>
+          <td>{{ drink.price | currency: 'EUR' }}</td>
+          <td>{{ drink.amount * drink.price | currency: 'EUR' }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group row" *ngIf="shouldCheckAge">
+        <label for="ageInput" class="col-2 col-form-label">Age</label>
+        <div class="col-10">
+          <input
+            type="number"
+            [(ngModel)]="age"
+            name="age"
+            class="form-control form-control-lg"
+            id="ageInput"
+          />
+        </div>
+      </div>
+      <button class="btn btn-default" (click)="onCancel()" type="button">
+        Cancel
+      </button>
+      <button
+        class="btn btn-success"
+        [disabled]="!age && shouldCheckAge"
+        type="submit"
+      >
+        Order
+      </button>
+    </form>
+  </div>
+</div>

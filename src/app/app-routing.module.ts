@@ -10,6 +10,17 @@ const routes: Routes = [
         esModule => esModule.PlaceOrderModule,
       ),
   },
+  {
+    path: 'review',
+    loadChildren: () =>
+      import('./review-order/review-order.module').then(
+        esModule => esModule.ReviewOrderModule,
+      ),
+  },
+  {
+    path: '**',
+    redirectTo: '/',
+  },
 ];
 
 @NgModule({
