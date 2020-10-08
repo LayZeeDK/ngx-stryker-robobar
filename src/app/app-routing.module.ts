@@ -17,6 +17,7 @@ const routes: Routes = [
         esModule => esModule.ReviewOrderModule,
       ),
   },
+  { path: 'success', loadChildren: () => import('./success/success.module').then(m => m.SuccessModule) },
   {
     path: '**',
     redirectTo: '/',
