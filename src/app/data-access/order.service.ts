@@ -7,19 +7,20 @@ import { storageToken } from './storage.token';
   providedIn: 'root',
 })
 export class OrderService {
-  #currentOrder: readonly Drink[] | null = null;
+  // tslint:disable-next-line: variable-name
+  _currentOrder: readonly Drink[] | null = null;
 
   get currentOrder(): readonly Drink[] | null {
-    if (!this.#currentOrder && this.storage.getItem('currentOrder')) {
-      this.#currentOrder =
+    if (!this._currentOrder && this.storage.getItem('currentOrder')) {
+      this._currentOrder =
         JSON.parse(this.storage.getItem('currentOrder') ?? '') ?? null;
     }
 
-    return this.#currentOrder ?? [];
+    return this._currentOrder;
   }
 
   set currentOrder(value: readonly Drink[] | null) {
-    this.#currentOrder = value;
+    this._currentOrder = value;
     this.storage.setItem('currentOrder', JSON.stringify(value));
   }
 

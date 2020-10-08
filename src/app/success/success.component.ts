@@ -9,6 +9,7 @@ import { OrderService } from '../data-access/order.service';
 })
 export class SuccessComponent implements OnInit {
   numberOfDrinks = 0;
+
   constructor(private orderService: OrderService) {}
 
   ngOnInit(): void {

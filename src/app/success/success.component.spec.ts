@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
+import { StorageTestingModule } from '../data-access/testing/storage-testing.module';
 import { SuccessComponent } from './success.component';
+import { SuccessModule } from './success.module';
 
 describe('SuccessComponent', () => {
   let component: SuccessComponent;
@@ -8,9 +11,8 @@ describe('SuccessComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SuccessComponent ]
-    })
-    .compileComponents();
+      imports: [RouterTestingModule, StorageTestingModule, SuccessModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +21,7 @@ describe('SuccessComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should be constructed', () => {
     expect(component).toBeTruthy();
   });
 });
