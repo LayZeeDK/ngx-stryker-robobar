@@ -8,6 +8,7 @@
     "!src/test.ts",
     "!src/environments/*.ts"
   ],
+  "checkers": ["typescript"],
   "testRunner": "karma",
   "karma": {
     "configFile": "karma.conf.js",
